@@ -1,0 +1,11 @@
+<%= form_with model: article do |f| %>
+  <div>
+  <%= article.errors.full_messages.to_sentence %>
+  </div>
+
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+
+  <%= f.submit %>
+
+<% end %>

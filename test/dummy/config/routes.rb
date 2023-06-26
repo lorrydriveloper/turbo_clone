@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  mount TurboClone::Engine => "/turbo_clone"
+  resources :articles
 end
