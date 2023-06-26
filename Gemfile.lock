@@ -81,6 +81,9 @@ GEM
       activesupport (>= 5.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
+    importmap-rails (1.2.1)
+      actionpack (>= 6.0.0)
+      railties (>= 6.0.0)
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -160,6 +163,7 @@ PLATFORMS
   arm64-darwin-22
 
 DEPENDENCIES
+  importmap-rails
   puma
   sprockets-rails
   sqlite3
