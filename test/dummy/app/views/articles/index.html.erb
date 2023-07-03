@@ -1,6 +1,9 @@
 <h1>Title</h1>
 
-
-<%= link_to 'New Article', new_article_path %>
+<%= link_to 'New Article', 
+            new_article_path,
+            data: {turbo_frame: dom_id(Article.new)} %>
+            
+<%= turbo_frame_tag Article.new  %>
 
 <%= render @articles %>
