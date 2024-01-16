@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'turbo_clone/test_assertion'
+
 module TurboClone
   class Engine < ::Rails::Engine
     isolate_namespace TurboClone
@@ -11,6 +13,12 @@ module TurboClone
     initializer 'turbo_clone.helpers' do
       ActiveSupport.on_load(:action_controller_base) do
         helper TurboClone::Engine.helpers
+      end
+    end
+
+    initializer 'turbo_clone.test_assertion' do
+      ActiveSupport.on_load(:active_support_test_case) do
+        include TurboClone::TestAssertion
       end
     end
   end
