@@ -40,6 +40,19 @@ class TurboClone::StreamsControllerTest < ActionDispatch::IntegrationTest
     assert_turbo_stream(action: 'remove', target: article)
   end
 
+  test 'show all turbo actions' do
+    article = Article.create!(content: 'Hello, World!')
+    get article_path(article), headers: headers
+    article_html = ApplicationController.render(article)
+    assert_dom_equal <<~HTML, response.body
+      <turbo-stream action='remove' target='#{dom_id(article)}'></turbo-stream>
+      <turbo-stream action='update' target='#{dom_id(article)}'><template>#{article_html}</template></turbo-stream>
+      <turbo-stream action='replace' target='#{dom_id(article)}'><template>Test Case</template></turbo-stream>
+      <turbo-stream action='prepend' target='articles'><template>#{article_html}</template></turbo-stream>
+      <turbo-stream action='prepend' target='articles'><template>#{article_html}</template></turbo-stream>
+    HTML
+  end
+
   private
 
   def headers
