@@ -12,7 +12,16 @@ module TurboClone
 
     initializer 'turbo_clone.helpers' do
       ActiveSupport.on_load(:action_controller_base) do
+        include TurboClone::Streams::TurboStreamTagBuilder
         helper TurboClone::Engine.helpers
+      end
+    end
+
+    initializer 'turbo_clone.turbo_stream_render' do
+      ActiveSupport.on_load(:action_controller_base) do
+        ActionController::Renderers.add :turbo_stream do |turbo_stream_html, _options|
+          turbo_stream_html
+        end
       end
     end
 
