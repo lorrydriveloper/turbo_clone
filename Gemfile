@@ -14,6 +14,8 @@ gem 'sprockets-rails'
 
 gem 'importmap-rails'
 
+gem 'redis'
+
 gem 'web-console', group: :development
 
 # Start debugger with binding.b [https://github.com/ruby/debug]

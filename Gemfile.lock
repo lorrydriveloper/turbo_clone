@@ -75,6 +75,7 @@ GEM
     bindex (0.8.1)
     builder (3.2.4)
     concurrent-ruby (1.2.2)
+    connection_pool (2.4.1)
     crass (1.0.6)
     date (3.3.3)
     debug (1.8.0)
@@ -149,6 +150,10 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    redis (5.0.8)
+      redis-client (>= 0.17.0)
+    redis-client (0.19.0)
+      connection_pool
     reline (0.3.6)
       io-console (~> 0.5)
     sprockets (4.2.0)
@@ -180,6 +185,7 @@ DEPENDENCIES
   debug (>= 1.0.0)
   importmap-rails
   puma
+  redis
   sprockets-rails
   sqlite3
   turbo_clone!
