@@ -7,6 +7,18 @@ module TurboClone::Streams::Broadcasts
     broadcast_action_to(*, action: :append, **)
   end
 
+  def broadcast_prepend_to(*, **)
+    broadcast_action_to(*, action: :prepend, **)
+  end
+
+  def broadcast_replace_to(*, **)
+    broadcast_action_to(*, action: :replace, **)
+  end
+
+  def broadcast_remove_to(*, **)
+    broadcast_action_to(*, action: :remove, **)
+  end
+
   private
 
   def broadcast_action_to(*, action:, target: nil, **rendering)
