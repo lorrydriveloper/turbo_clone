@@ -30,5 +30,11 @@ module TurboClone
         include TurboClone::TestAssertion
       end
     end
+
+    initializer 'turbo_clone.broadcastable' do
+      ActiveSupport.on_load(:active_record) do
+        include TurboClone::Broadcastable
+      end
+    end
   end
 end
