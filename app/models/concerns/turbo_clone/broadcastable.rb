@@ -10,22 +10,37 @@ module TurboClone::Broadcastable
   end
 
   def broadcast_append_to(*streamables, target: broadcast_target_default, **rendering)
-    TurboClone::StreamChannel.broadcast_append_to(streamables, target: target,
-                                                               **broadcast_rendering_with_defaults(rendering),)
+    TurboClone::StreamChannel
+      .broadcast_append_to(streamables, target: target, **broadcast_rendering_with_defaults(rendering))
   end
 
   def broadcast_prepend_to(*streamables, target: broadcast_target_default, **rendering)
-    TurboClone::StreamChannel.broadcast_prepend_to(streamables, target: target,
-                                                                **broadcast_rendering_with_defaults(rendering),)
+    TurboClone::StreamChannel
+      .broadcast_prepend_to(streamables, target: target, **broadcast_rendering_with_defaults(rendering))
   end
 
   def broadcast_replace_to(*streamables, target: self, **rendering)
-    TurboClone::StreamChannel.broadcast_replace_to(streamables, target: target,
-                                                                **broadcast_rendering_with_defaults(rendering),)
+    TurboClone::StreamChannel
+      .broadcast_replace_to(streamables, target: target, **broadcast_rendering_with_defaults(rendering))
   end
 
   def broadcast_remove_to(*streamables, target: self)
     TurboClone::StreamChannel.broadcast_remove_to(streamables, target: target)
+  end
+
+  def broadcast_append_later_to(*streamables, target: broadcast_target_default, **rendering)
+    TurboClone::StreamChannel
+      .broadcast_append_later_to(streamables, target: target, **broadcast_rendering_with_defaults(rendering))
+  end
+
+  def broadcast_prepend_later_to(*streamables, target: broadcast_target_default, **rendering)
+    TurboClone::StreamChannel
+      .broadcast_prepend_later_to(streamables, target: target, **broadcast_rendering_with_defaults(rendering))
+  end
+
+  def broadcast_replace_later_to(*streamables, target: self, **rendering)
+    TurboClone::StreamChannel
+      .broadcast_replace_later_to(streamables, target: target, **broadcast_rendering_with_defaults(rendering))
   end
 
   private
